@@ -1,3 +1,8 @@
+<img width="1919" height="1021" alt="chat bot 1" src="https://github.com/user-attachments/assets/1c046107-fcb8-4de7-be3c-ce49961cd9d1" />
+
+<img width="1919" height="1021" alt="chat bot 2" src="https://github.com/user-attachments/assets/f40c9641-a6a9-4689-88e2-316a2537f0d6" />
+
+
 # Chat Bot (React + FastAPI + LangGraph + Groq Tools)
 
 This repo is a simple “tool-using” chatbot:
@@ -23,6 +28,9 @@ This repo is a simple “tool-using” chatbot:
 Flowchart (the loop edge is `builder.add_edge("tools", "tool_calling_llm")`):
 
 ![LangGraph Flow](docs/langgraph_flow.svg)
+
+<img width="216" height="249" alt="output" src="https://github.com/user-attachments/assets/efa9c270-e3a5-4eaf-9c65-9b52fbb2241b" />
+
 
 ## Project layout
 
