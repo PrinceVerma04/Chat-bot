@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="360" viewBox="0 0 980 360" role="img" aria-label="LangGraph flowchart">
+  <defs>
+    <style>
+      .box { fill:#0b1220; stroke:#334155; stroke-width:2; rx:14; ry:14; }
+      .title { fill:#e2e8f0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; font-size:18px; font-weight:600; }
+      .text { fill:#cbd5e1; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; font-size:14px; }
+      .arrow { stroke:#94a3b8; stroke-width:2.5; fill:none; marker-end:url(#arrowhead); }
+      .label { fill:#94a3b8; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; font-size:12px; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Nodes -->
+  <rect class="box" x="60" y="140" width="170" height="80"/>
+  <text class="title" x="145" y="175" text-anchor="middle">START</text>
+
+  <rect class="box" x="300" y="110" width="260" height="140"/>
+  <text class="title" x="430" y="150" text-anchor="middle">tool_calling_llm</text>
+  <text class="text" x="430" y="178" text-anchor="middle">ChatGroq + bind_tools</text>
+  <text class="text" x="430" y="202" text-anchor="middle">Produces assistant msg</text>
+
+  <rect class="box" x="660" y="80" width="250" height="90"/>
+  <text class="title" x="785" y="120" text-anchor="middle">tools (ToolNode)</text>
+  <text class="text" x="785" y="146" text-anchor="middle">Arxiv / Wikipedia / Tavily</text>
+
+  <rect class="box" x="660" y="220" width="250" height="90"/>
+  <text class="title" x="785" y="260" text-anchor="middle">END</text>
+  <text class="text" x="785" y="286" text-anchor="middle">No tool calls</text>
+
+  <!-- Arrows -->
+  <path class="arrow" d="M230 180 L300 180"/>
+
+  <!-- Conditional edges from tool_calling_llm -->
+  <path class="arrow" d="M560 145 L660 125"/>
+  <text class="label" x="610" y="115">if tool_calls</text>
+
+  <path class="arrow" d="M560 215 L660 250"/>
+  <text class="label" x="610" y="255">if no tool_calls</text>
+
+  <!-- Loop: tools -> tool_calling_llm -->
+  <path class="arrow" d="M785 170 C785 200 640 200 560 200"/>
+  <text class="label" x="700" y="206">builder.add_edge(&quot;tools&quot;, &quot;tool_calling_llm&quot;)</text>
+</svg>
+
